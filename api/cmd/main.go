@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/rs/cors"
 	"github.com/test/pkg/db"
 	"github.com/test/pkg/formularios"
 	"github.com/test/pkg/imagenes"
@@ -57,8 +58,15 @@ func HttpServer() error {
 	formularios.Router(r)
 	imagenes.Router(r)
 
+	hadler := cors.AllowAll().Handler(r)
+	addr := ":3000"
+	server := &http.Server{
+		Addr:    addr,
+		Handler: hadler,
+	}
+
 	log.Println("Run http server en port:3000")
-	err := http.ListenAndServe(":3000", r)
+	err := server.ListenAndServe()
 	if err != nil {
 		return err
 	}
@@ -66,6 +74,8 @@ func HttpServer() error {
 	return nil
 }
 
+/*
+// este es un ejemplo del manejo de funciones
 func Suma(a int, b int) (int, error) {
 	var c int
 	var err error
@@ -92,3 +102,4 @@ func Operaciones(a int, b int) (int, int, error) {
 	resta = a - b
 	return suma, resta, err
 }
+*/

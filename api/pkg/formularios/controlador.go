@@ -33,7 +33,10 @@ func insertFormulario(w http.ResponseWriter, r *http.Request) {
 	//log.Println(numBeneficiarios)
 
 	result, err := InsertFormulario(nombre, apellidos, tipoIdentificacion, estadoCivil, fechaNacimiento, numBeneficiarios, fechaIngreso)
+
+	// Verificar si se produjo un error durante la inserción de datos
 	if err != nil {
+		// Si hay un error, responder al cliente con un código de estado HTTP 500 (Internal Server Error) y un mensaje de error
 		res.JSON(w, r, http.StatusInternalServerError, res.Json{
 			"message": err.Error(),
 		})

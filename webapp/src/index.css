@@ -1,0 +1,24 @@
+.celsia-btn {
+    border-width: 0px;
+    padding: 4px 8px 4px 8px;
+    margin-right: 16px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.celsia-primary {
+    background-color: darkorange;
+    color: white;
+    font-style: italic;
+    font-weight: 600;
+    padding: 4px 8px 4px 8px;
+}
+
+.celsia-primary:hover{
+    background-color:red;
+    color: black;
+}
+
+.celsia-round {
+    border-radius: 8px;
+}

@@ -16,15 +16,12 @@ git tag V.1.0.0
 git push -u -origin --tags 
 
 ```
-
-
-# webapp project
+## Components - Instalar Bootstrap
 ```
-npm create vite@latest webapp --template react
+npm i react-bootstrap bootstrap
 
-cd webapp
-  npm install
-  npm run dev
-
-## Pagina de Vite
-http://localhost:5173/
+```
+```
+## Instalar cros
+go get github.com/rs/cors
+```
